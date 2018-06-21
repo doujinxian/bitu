@@ -1,0 +1,295 @@
+@charset "UTF-8";
+/*关于币掌柜*/
+#box{
+	width: 100%;
+}
+.Btecontent{
+	/*width: 1920px;*/
+	height: 786px;
+	background: url(../../image/second/we.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.Btecon{
+	width: 906px;
+	height: 378px;
+	margin: 173px auto;
+}
+.Btecon p:nth-child(1){
+	text-align: center;
+	font-size: 30px;
+	color: #308CDD;
+	margin-bottom: 84px;
+}
+.Btecon span{
+	font-size: 20px;
+	color: #5F6266;
+	line-height: 36px;
+	opacity: 0.9;
+}
+.Btecon p:nth-child(3){
+	font-size: 20px;
+	color: #5F6266;
+	margin-top: 70px;
+	opacity: 0.9;
+}
+.Bteskill{
+	height: 732px;
+	background: url(../../image/second/Btesk.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.Btesk{
+	width: 906px;
+	height: 270px;
+	margin: 151px auto;
+}
+.Btesk p{
+	font-size: 30px;
+	color: #FFFFFF;
+	text-align: center;
+	margin-bottom: 84px;
+}
+.Btesk span{
+	opacity: 0.9;
+	font-size: 20px;
+	color: #FFFFFF;
+	line-height: 36px;
+}
+
+
+/*隐私保护*/
+.Bteprivacy{
+	height: 611px;
+	background: url(http://www.bitm.fund/files/privacy.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.Btepr{
+	width: 1200px;
+	height: 339px;
+	margin: 146px auto;
+}
+.Btepr span{
+	font-size: 30px;
+	color: #308CDD;
+	line-height: 30px;
+	text-align: center;
+	display: block;
+}
+.BteprUl{
+	opacity: 0.9;
+	font-size: 14px;
+	color: #5F6266;
+	line-height: 28px;
+	margin-top: 65px;
+}
+
+/*免责协议*/
+.Bteblame{
+	height: 882px;
+	background: url(http://www.bitm.fund/files/Bteblame.png) no-repeat;
+	background-size: 100% 100;
+	padding: 0.1px;
+}
+.Btebla{
+	width: 1200px;
+	height: 627px;
+	margin: 146px auto 0 auto;
+}
+.Btebla p{
+	font-size: 30px;
+	color: #308CDD;
+	line-height: 30px;
+	text-align: center;
+}
+.BteblaU{
+	opacity: 0.9;
+	font-size: 14px;
+	color: #5F6266;
+	line-height: 28px;
+	margin-top: 65px;
+}
+
+
+/*服务条款*/
+.Bteserve{
+	height: 2417px;
+	padding: 0.1px;
+}
+.one{
+	height: 715px;
+	background: url(http://www.bitm.fund/files/one.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.oneSe{
+	width: 1200px;
+	height: 552px;
+	margin: 146px auto 0 auto;
+}
+.oneSeP{
+	text-align: center;
+	font-size: 30px;
+	color: #308CDD;
+	letter-spacing: 0;
+	line-height: 30px;
+	margin-bottom: 61px;
+}
+.oneSeUl li span{
+	font-size: 20px;
+	color: #525866;
+	letter-spacing: 0;
+	line-height: 20px;
+	margin: 25px 0 25px 0;
+	display: block;
+}
+.oneSeUl li p{
+	opacity: 0.9;
+	font-size: 14px;
+	color: #5F6266;
+	line-height: 28px;
+	
+}
+.two{
+	height: 1421px;
+	background: url(http://www.bitm.fund/files/two.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.twoSe{
+	width: 1200px;
+	height: 1563px;
+	margin: 60px auto 0 auto;
+}
+.twoSeUl li span{
+	font-size: 20px;
+	color: #525866;
+	letter-spacing: 0;
+	line-height: 20px;
+	margin: 25px 0 25px 0;
+	display: block;
+}
+.twoSeUl li p{
+	opacity: 0.9;
+	font-size: 14px;
+	color: #5F6266;
+	line-height: 28px;
+	
+}
+
+
+/*招聘英才*/
+.invite{
+	height: 2302px;
+	/*background: red;*/
+}	
+.inviteOne{
+	height: 715px;
+	background: url(../../image/second/inviteOne.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.inBte{
+	width: 1010px;
+	height: 715px;
+	/*background: #00CC00;*/
+	margin: 146px auto 0 auto;
+}
+.inBteP{
+	font-size: 30px;
+	color: #308CDD;
+	letter-spacing: 0;
+	line-height: 30px;
+	text-align: center;
+}
+.inBtesk{
+	font-size: 24px;
+	color: #525866;
+	letter-spacing: 0;
+	line-height: 26px;
+	margin: 56px 0;
+}
+.skillBte{
+	width: 477px;
+	height: 384px;
+	/*background: #000000;*/
+	float: left;
+}
+.skillBte p{
+	font-size: 20px;
+	color: #525866;
+	letter-spacing: 0;
+	line-height: 26px;
+}
+.skillBte ul{
+	opacity: 0.9;
+	font-size: 16px;
+	color: #5F6266;
+	line-height: 36px;
+	margin: 42px 0 116px 0;
+}
+.skillBte span{
+	font-size: 16px;
+	color: #5F6266;
+	letter-spacing: 0;
+	line-height: 20px;
+}
+.beg{
+	width: 433px;
+	height: 384px;
+	/*background: #007AFF;*/
+	float: right;
+}
+.beg p{
+	font-size: 20px;
+	color: #525866;
+	letter-spacing: 0;
+	line-height: 26px;
+	margin-bottom: 42px;
+}
+.beg ul{
+	opacity: 0.9;
+	font-size: 16px;
+	color: #5F6266;
+	line-height: 36px;
+}
+
+.inviteTwo{
+	height: 793px;
+	background: url(../../image/second/inviteTwo.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+	border-bottom: 1px solid #E3ECF3;
+}
+.twoBte{
+	width: 1010px;
+	height: 536px;
+	/*background: #000;*/
+	margin: 146px auto 97px auto;
+}
+.twoBte ul{
+	opacity: 0.9;
+	font-size: 16px;
+	color: #5F6266;
+	line-height: 36px;
+	margin: 42px 0 78px 0;
+}
+.inviteSan{
+	height: 749px;
+	background: url(../../image/second/inviteSan.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.SanBte{
+	width: 1010px;
+	height: 536px;
+	margin: 97px auto 0 auto;
+}
+.SanBte ul{
+	opacity: 0.9;
+	font-size: 16px;
+	color: #5F6266;
+	line-height: 36px;
+	margin: 42px 0 68px 0;
+}

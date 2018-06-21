@@ -1,0 +1,255 @@
+@charset "UTF-8";
+#box{
+	width: 100%;
+	/*height: 1000px;*/
+	/*background: red;*/
+}
+
+
+/*公司介绍*/
+.company{
+	height: 845px;
+	background: url(bteB.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.introduce{
+	width: 1150px;
+	height: 525px;
+	margin: 140px auto 0 auto;
+}
+.in_p{
+	height: 30px;
+	font-size: 30px;
+	text-align: center;
+}
+.introduceOne{
+	width: 906px;
+	height: 112px;
+	margin: 84px auto 140px auto;
+}
+.introduceOne p{
+	text-align: center;
+	font-size: 18px;
+	color: #5F6266;
+	line-height: 36px;
+}
+.introduceTwo{
+	height: 160px;
+	/*background: #000;*/
+	/*margin-top: 74px;*/
+}
+.introduceTwo li{
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.introduceTwo li p{
+	margin-top:71px;
+	font-size: 14px;
+	color: #24262C;
+}
+/*产品服务*/
+.product{
+	height: 862px;
+	background: #F0F3F6;
+	padding: 0.1px;
+}
+.productOne{
+	width: 1139px;
+	height: 597px;
+	/*background: red;*/
+	margin: 140px auto 0 auto;
+}
+
+.pr_img{
+	width: 455px;
+	height: 358px;
+	margin-top: 122px;
+	background: url(betF.png) no-repeat;
+	background-size: 100% 100%;
+	float: left;
+}
+.pr_two{
+	width: 613px;
+	height: 450px;
+	/*background: #000;*/
+	float: right;
+	margin-top: 105px;
+	border-left:7px solid red ;
+	-moz-border-image:url(bian.png) 0 0 0 7 round;
+	-webkit-border-image:url(bian.png) 0 0 0 7 round; /* Safari 5 */
+	-o-border-image:url(bian.png) 0 0 0 7 round; /* Opera */
+	border-image:url(bian.png) 0 0 0 7 round;
+}
+.pr_data{
+	height: 197px;
+	margin-left: 18px;
+}
+.da_p{
+	font-size: 16px;
+	color: #141518;
+	line-height: 30px
+}
+.da_pp{
+	font-size: 14px;
+	color: #5F6266;
+	line-height: 30px
+}
+.pr_risk{
+	height: 130px;
+	margin-left: 18px;
+}
+.pr_serve{
+	margin-left: 18px;
+}
+.weUser{
+	height: 622px;
+	background: url(btcE.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.weUserOne{
+	width: 1154px;
+	height: 330px;
+	margin: 160px auto 0 auto;
+}
+.weUl{
+	width: 100%;
+	height: 100%;
+	margin-top: 66px;
+}
+.weUl li{
+	width: 25%;
+	height: 260px;
+	float: left;
+}
+.weUl li p:nth-child(2){
+	font-size: 16px;
+	color: #24262C;
+	margin-top: 24px;
+	margin-bottom: 20px
+}
+.weUl li p:nth-child(3){
+	text-align: center;
+	margin: 0 auto;
+	height: 80px;
+	border-right: 1px solid  #E6E6E6;
+	font-size: 14px;
+	color: #5F6266;
+}
+.weUl .weLi p:last-child{
+	border: none;
+}
+.span{
+	width: 260px;
+	display: inline-block;
+	margin-top: 18px;
+}
+.weProduct{
+	height: 793px;
+	background: url(bteC.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+	border-bottom: 3px solid #F0F3F6;
+}
+.weProductOne{
+	width: 1132px;
+	height: 668px;
+	margin: 125px auto 0 auto;
+}
+.wePrOneImg{
+	width: 504px;
+	height: 580px;
+	margin-top: 58px;
+	float: left;
+}
+.weBte{
+	width: 548px;
+	float:right;
+	margin-top: 165px;
+}
+.weBte p:nth-child(1){
+	font-size: 40px;
+	height: 40px;
+	color: #24262C;
+	margin-bottom: 20px;
+}
+.weBte p:nth-child(2){
+	font-size: 18px;
+	color: #5F6266;
+	line-height: 32px;
+}
+.weProductTwo{
+	height: 644px;
+	background: url(btcN.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 0.1px;
+}
+.wePrTwo{
+	width:1057px;
+	height: 473px;
+	margin: 120px auto 0 auto;
+	padding: 0.1px
+}
+.twoBiteye{
+	width: 548px;
+	margin-top: 122px;
+	float: left;
+}
+.twoBiteye p:nth-child(1){
+	font-size: 40px;
+	color: #24262C;
+	height: 40px;
+	margin-bottom: 20px;
+}
+.twoBiteye p:nth-child(2){
+	font-size: 18px;
+	color: #5F6266;
+	line-height: 32px;
+}
+.twoImg{
+	width: 383px;
+	height: 473px;
+	float: right;
+}
+.back{
+	height: 695px;
+	background: url(bteG.png) no-repeat #fff;
+	background-size: 100% 100%;
+	padding: 0.1px
+}
+.backOne{
+	width: 1200px;
+	height: 340px;
+	margin: 160px auto 0 auto;
+}
+.backOneI{
+	width: 436px;
+	height: 132px;
+	margin-top: 130px;
+	float: left;
+}
+.backOneI li{
+	float: left;
+}
+.backOneI li:nth-child(1){
+	width: 225px;
+	height: 104px;
+	border-right: 1px solid rgba(82,88,102,.3);
+	padding-right: 50px;
+	padding-top: 10px;
+}
+.backOneI li:nth-child(2){
+	width: 98px;
+	height: 117px;
+	float: right;
+}
+.backOneZ{
+	width: 647px;
+	float: right;
+	font-size: 18px;
+	color: #5F6266;
+	line-height: 33.5px;
+	margin-top: 130px;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="baidu-site-verification" content="iBKXouRC1a">
+    <meta name="keywords"
+          content="币掌柜，bitm.fund，北京一幅科技文化有限公司，比特币，以太坊，比特现金，以太经典，莱特币，瑞波币，eos，btc，eth，bch，etc，ltc，xrp，币安，火币，okex，bitfinex，bittrex，zb,gate.io，imtoken，coinbase，bitstamp，bithumb，kraken，数字货币，交易平台，分析平台，交易所，雪球，金色财经">
+    <meta name="description" content="币掌柜是业界领先的数字资产量化管理平台，实时监测全球数字货币市场的交易数据、指标和特征等，基于AI的量化策略为用户的资产提供全方位的保值和增值服务。">
+    <title>币掌柜-流入流出统计</title>
+    <link rel="shortcut icon" href="http://www.bitm.fund/files/favicon.png">
+</head>
+<body style="height: 100%; margin: 0">
+<div style="padding: 20px;">
+    <span>交易所：</span>
+    <select id="platform" name="platform">
+        <option selected="selected" value="1">币安</option>
+    </select>
+    <span style="padding-left: 10px;">币种：</span>
+    <select id="symbol" name="symbol" onchange="changeSelect()">
+    </select>
+    <span style="padding-left: 10px;">日期：</span>
+    <input type="date" id="tradeStartTime" name="tradeStartTime" onchange="changeSelect()" value="">
+    <span style="padding-left: 10px;">周期：</span>
+    <select id="timeUnit" name="timeUnit" onchange="changeTimeUnit()">
+        <option selected="selected" value="60">1小时</option>
+        <option value="120">2小时</option>
+        <option value="360">6小时</option>
+        <option value="1440">1天</option>
+    </select>
+
+</div>
+<div id="container" style="height: 100%"></div>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://www.bitm.fund/files/jquery.js"></script>
+<script type="text/javascript">
+    function init(){
+        var symbols = "ETHBTC,LTCBTC,BNBBTC,NEOBTC,QTUMETH,EOSETH,SNTETH,BNTETH,BCCBTC,GASBTC,BNBETH,BTCUSDT,ETHUSDT,HSRBTC,OAXETH,DNTETH,MCOETH,ICNETH,MCOBTC,WTCBTC,WTCETH,LRCBTC,LRCETH,QTUMBTC,YOYOBTC,OMGBTC,OMGETH,ZRXBTC,ZRXETH,STRATBTC,STRATETH,SNGLSBTC,SNGLSETH,BQXBTC,BQXETH,KNCBTC,KNCETH,FUNBTC,FUNETH,SNMBTC,SNMETH,NEOETH,IOTABTC,IOTAETH,LINKBTC,LINKETH,XVGBTC,XVGETH,SALTBTC,SALTETH,MDABTC,MDAETH,MTLBTC,MTLETH,SUBBTC,SUBETH,EOSBTC,SNTBTC,ETCETH,ETCBTC,MTHBTC,MTHETH,ENGBTC,ENGETH,DNTBTC,ZECBTC,ZECETH,BNTBTC,ASTBTC,ASTETH,DASHBTC,DASHETH,OAXBTC,ICNBTC,BTGBTC,BTGETH,EVXBTC,EVXETH,REQBTC,REQETH,VIBBTC,VIBETH,HSRETH,TRXBTC,TRXETH,POWRBTC,POWRETH,ARKBTC,ARKETH,YOYOETH,XRPBTC,XRPETH,MODBTC,MODETH,ENJBTC,ENJETH,STORJBTC,STORJETH,BNBUSDT,VENBNB,YOYOBNB,POWRBNB,VENBTC,VENETH,KMDBTC,KMDETH,NULSBNB,RCNBTC,RCNETH,RCNBNB,NULSBTC,NULSETH,RDNBTC,RDNETH,RDNBNB,XMRBTC,XMRETH,DLTBNB,WTCBNB,DLTBTC,DLTETH,AMBBTC,AMBETH,AMBBNB,BCCETH,BCCUSDT,BCCBNB,BATBTC,BATETH,BATBNB,BCPTBTC,BCPTETH,BCPTBNB,ARNBTC,ARNETH,GVTBTC,GVTETH,CDTBTC,CDTETH,GXSBTC,GXSETH,NEOUSDT,NEOBNB,POEBTC,POEETH,QSPBTC,QSPETH,QSPBNB,BTSBTC,BTSETH,BTSBNB,XZCBTC,XZCETH,XZCBNB,LSKBTC,LSKETH,LSKBNB,TNTBTC,TNTETH,FUELBTC,FUELETH,MANABTC,MANAETH,BCDBTC,BCDETH,DGDBTC,DGDETH,IOTABNB,ADXBTC,ADXETH,ADXBNB,ADABTC,ADAETH,PPTBTC,PPTETH,CMTBTC,CMTETH,CMTBNB,XLMBTC,XLMETH,XLMBNB,CNDBTC,CNDETH,CNDBNB,LENDBTC,LENDETH,WABIBTC,WABIETH,WABIBNB,LTCETH,LTCUSDT,LTCBNB,TNBBTC,TNBETH,WAVESBTC,WAVESETH,WAVESBNB,GTOBTC,GTOETH,GTOBNB,ICXBTC,ICXETH,ICXBNB,OSTBTC,OSTETH,OSTBNB,ELFBTC,ELFETH,AIONBTC,AIONETH,AIONBNB,NEBLBTC,NEBLETH,NEBLBNB,BRDBTC,BRDETH,BRDBNB,MCOBNB,EDOBTC,EDOETH,WINGSBTC,WINGSETH,NAVBTC,NAVETH,NAVBNB,LUNBTC,LUNETH,TRIGBTC,TRIGETH,TRIGBNB,APPCBTC,APPCETH,APPCBNB,VIBEBTC,VIBEETH,RLCBTC,RLCETH,RLCBNB,INSBTC,INSETH,PIVXBTC,PIVXETH,PIVXBNB,IOSTBTC,IOSTETH,CHATBTC,CHATETH,STEEMBTC,STEEMETH,STEEMBNB,NANOBTC,NANOETH,NANOBNB,VIABTC,VIAETH,VIABNB,BLZBTC,BLZETH,BLZBNB,AEBTC,AEETH,AEBNB,RPXBTC,RPXETH,RPXBNB,NCASHBTC,NCASHETH,NCASHBNB,POABTC,POAETH,POABNB,ZILBTC,ZILETH,ZILBNB,ONTBTC,ONTETH,ONTBNB,STORMBTC,STORMETH,STORMBNB,QTUMBNB,QTUMUSDT,XEMBTC,XEMETH,XEMBNB,WANBTC,WANETH,WANBNB,WPRBTC,WPRETH,QLCBTC,QLCETH,SYSBTC,SYSETH,SYSBNB,QLCBNB,GRSBTC,GRSETH,ADAUSDT,ADABNB,CLOAKBTC,CLOAKETH,GNTBTC,GNTETH,GNTBNB,LOOMBTC,LOOMETH,LOOMBNB,XRPUSDT,BCNBTC,BCNETH,BCNBNB,REPBTC,REPETH,REPBNB,TUSDBTC,TUSDETH,TUSDBNB";
+        symbols.split(",").forEach(function(val,i){
+            if(val == 'ETHBTC'){
+                $('#symbol').append('<option selected="selected" value="'+val+'">'+val+'</option>');
+            }else{
+                $('#symbol').append('<option value="'+val+'">'+val+'</option>');
+            }
+        });
+        var now = new Date();
+        //格式化日，如果小于9，前面补0
+        var day = ("0" + now.getDate()).slice(-2);
+        //格式化月，如果小于9，前面补0
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        //拼装完整日期格式
+        var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+        //完成赋值
+        $('#tradeStartTime').val(today);
+    }
+    init();
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                crossStyle: {
+                    color: '#999'
+                }
+            }
+        },
+        toolbox: {
+            feature: {
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        legend: {
+            data: ['净主动流入', '净主动流出', '净流入', '净流出']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: [],
+                axisPointer: {
+                    type: 'shadow'
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '成交量',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }
+        ],
+        series: [
+            {
+                name: '净主动流入',
+                type: 'line',
+                data: []
+            },
+            {
+                name: '净主动流出',
+                type: 'line',
+                data: []
+            },
+            {
+                name: '净流入',
+                type: 'bar',
+                stack: 'one',
+                data: []
+            },
+            {
+                name: '净流出',
+                type: 'bar',
+                stack: 'one',
+                data: []
+            }
+        ],
+        color: ['green', 'red', 'green', 'red']
+    };
+    function changeTimeUnit(){
+        $('#timeUnit').val(60);
+        alert('敬请期待！');
+    }
+    function changeSelect() {
+        var basePath = "http://www.bitm.fund/api/biTrade/qty?symbol=";
+        //var basePath = "http://www.localbitm.com:81/api/biTrade/qty?symbol=";
+        var tradeStartTime = new Date($('#tradeStartTime').val().replace(/\-/g, "/")+"  00:00:00").getTime();
+        var url = basePath + $('#symbol').val() + "&platform=" + $('#platform').val() + "&tradeStartTime="+tradeStartTime+"&timeUnit=";
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                if (result.success) {
+                    var timeLine = [];
+                    var data1 = [];
+                    var data2 = [];
+                    var data3 = [];
+                    var data4 = [];
+                    result.data.forEach(function (val, i) {
+                        var hour = new Date(val.tradeTime).getHours();
+                        timeLine.push(hour + 'h');
+                        data1.push(val.buyerMakerQty);
+                        data2.push(val.sellerMakerQty);
+                        if (val.qty > 0) {
+                            data3.push(val.qty);
+                            data4.push(0);
+                        } else {
+                            data3.push(0);
+                            data4.push(val.qty * -1);
+                        }
+                    });
+                    option.xAxis[0].data = timeLine;
+                    option.series[0].data = data1;
+                    option.series[1].data = data2;
+                    option.series[2].data = data3;
+                    option.series[3].data = data4;
+                    myChart.setOption(option, true);
+                } else {
+                    alert(result.errorMsg);
+                }
+            }
+        });
+    }
+    changeSelect();
+</script>
+</body>
+</html>
