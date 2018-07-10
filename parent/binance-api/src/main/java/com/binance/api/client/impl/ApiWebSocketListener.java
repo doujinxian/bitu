@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Binance API WebSocket listener.
  */
-public class BinanceApiWebSocketListener<T> extends WebSocketListener {
+public class ApiWebSocketListener<T> extends WebSocketListener {
 
   private BinanceApiCallback<T> callback;
 
@@ -22,12 +22,12 @@ public class BinanceApiWebSocketListener<T> extends WebSocketListener {
 
   private boolean closing = false;
 
-  public BinanceApiWebSocketListener(BinanceApiCallback<T> callback, Class<T> eventClass) {
+  public ApiWebSocketListener(BinanceApiCallback<T> callback, Class<T> eventClass) {
     this.callback = callback;
     this.eventClass = eventClass;
   }
 
-  public BinanceApiWebSocketListener(BinanceApiCallback<T> callback) {
+  public ApiWebSocketListener(BinanceApiCallback<T> callback) {
     this.callback = callback;
     this.eventTypeReference = new TypeReference<T>() {};
   }

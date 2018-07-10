@@ -38,22 +38,6 @@ public class TradeServiceImpl implements TradeService {
     }
 
     @Override
-    public void saveBinanceTrade(TradeEvent trade) {
-        Trade tradeInfo = new Trade();
-        tradeInfo.setSymbol(trade.getSymbol());
-        tradeInfo.setPlatform(CommonConstants.PLATFORM_BINANCE);
-        tradeInfo.setTradeId(trade.getTradeId());
-        tradeInfo.setIsBuyerMaker(trade.isBuyerMaker() ? 1 : 0);
-        tradeInfo.setPrice(trade.getPrice());
-        tradeInfo.setQty(trade.getQuantity());
-        tradeInfo.setTradeTime(trade.getTradeTime());
-        long now = System.currentTimeMillis();
-        tradeInfo.setCreateTime(now);
-        tradeInfo.setUpdateTime(now);
-        insertTrade(tradeInfo);
-    }
-
-    @Override
     public List<BiTradeQty> findBiTradeQtyList(Long tradeStartTime, Long tradeEndTime) {
         return tradeMapper.findBiTradeQtyList(tradeStartTime, tradeEndTime);
     }

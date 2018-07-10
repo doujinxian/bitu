@@ -18,6 +18,7 @@ public class CommonConstants {
     public static volatile List triangleSymbols = TRIANGLE_SYMBOLS_BNB;
 
     public static final Integer PLATFORM_BINANCE = 1; //平台 1：币安
+    public static final Integer PLATFORM_FCOIN = 2; //平台 2:fcoin
 
     public static volatile boolean openTrade = false;
     public static volatile boolean realTrade = false;

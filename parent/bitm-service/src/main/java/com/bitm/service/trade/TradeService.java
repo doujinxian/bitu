@@ -17,8 +17,6 @@ public interface TradeService {
 
     Long findMaxTradeIdBySymbol(String symbol);
 
-    void saveBinanceTrade(TradeEvent newEvent);
-
     List<BiTradeQty> findBiTradeQtyList(Long tradeStartTime, Long tradeEndTime);
 
     List<BigDecimal> findQtyList(String symbol, Integer limit);

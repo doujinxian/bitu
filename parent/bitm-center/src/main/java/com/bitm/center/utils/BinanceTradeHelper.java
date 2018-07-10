@@ -4,6 +4,8 @@ import com.binance.api.client.BinanceApiCallback;
 import com.binance.api.client.BinanceApiClientFactory;
 import com.binance.api.client.BinanceApiWebSocketClient;
 import com.binance.api.client.domain.event.TradeEvent;
+import com.bitm.model.constants.CommonConstants;
+import com.bitm.model.entity.Trade;
 import com.bitm.service.trade.TradeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
 
-public class TradeHelper {
+public class BinanceTradeHelper {
 
     private final String symbol;
     private final BinanceApiWebSocketClient wsClient;
@@ -24,9 +26,9 @@ public class TradeHelper {
     private volatile Closeable webSocket;
     private TradeService tradeService;
 
-    private Logger logger = LoggerFactory.getLogger(TradeHelper.class);
+    private Logger logger = LoggerFactory.getLogger(BinanceTradeHelper.class);
 
-    public TradeHelper(String symbol, BinanceApiClientFactory factory, TradeService tradeService) {
+    public BinanceTradeHelper(String symbol, BinanceApiClientFactory factory, TradeService tradeService) {
         this.symbol = symbol;
         this.tradeService = tradeService;
         if (factory == null) {
@@ -64,8 +66,23 @@ public class TradeHelper {
      */
     private void applyPendingDeltas(final List<TradeEvent> pendingDeltas) {
         final Consumer<TradeEvent> updateOrderBook = newEvent -> {
-            tradeService.saveBinanceTrade(newEvent);
-            //logger.info("--------symbol:[{}] -----" + newEvent.toString(), symbol);
+            try {
+                Trade tradeInfo = new Trade();
+                tradeInfo.setSymbol(newEvent.getSymbol());
+                tradeInfo.setPlatform(CommonConstants.PLATFORM_BINANCE);
+                tradeInfo.setTradeId(newEvent.getTradeId());
+                tradeInfo.setIsBuyerMaker(newEvent.isBuyerMaker() ? 1 : 0);
+                tradeInfo.setPrice(newEvent.getPrice());
+                tradeInfo.setQty(newEvent.getQuantity());
+                tradeInfo.setTradeTime(newEvent.getTradeTime());
+                long now = System.currentTimeMillis();
+                tradeInfo.setCreateTime(now);
+                tradeInfo.setUpdateTime(now);
+                tradeService.insertTrade(tradeInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
+                logger.error("--------binance symbol:[{}] -----" + newEvent.toString(), symbol);
+            }
         };
 
         wsCallback.setHandler(updateOrderBook);
@@ -85,14 +102,14 @@ public class TradeHelper {
             try {
                 handler.get().accept(TradeEvent);
             } catch (final Exception e) {
-                logger.error("trade symbol:[{}] ----- Exception caught processing depth event", symbol);
+                logger.error("binance trade symbol:[{}] ----- Exception caught processing depth event", symbol);
                 e.printStackTrace(System.err);
             }
         }
 
         @Override
         public void onFailure(Throwable cause) {
-            logger.info("trade symbol:[{}] ----- WS connection failed. Reconnecting. cause:" + cause.getMessage(), symbol);
+            logger.info("binance trade symbol:[{}] ----- WS connection failed. Reconnecting. cause:" + cause.getMessage(), symbol);
 
             initialize();
         }

@@ -86,14 +86,14 @@ public class OrderBookHelper {
             try {
                 handler.get().accept(OrderBookEvent);
             } catch (final Exception e) {
-                logger.error("order book symbol:[{}] ----- Exception caught processing depth event", symbol);
+                logger.error("binance order book symbol:[{}] ----- Exception caught processing depth event", symbol);
                 e.printStackTrace(System.err);
             }
         }
 
         @Override
         public void onFailure(Throwable cause) {
-            logger.info("order book symbol:[{}] ----- WS connection failed. Reconnecting. cause:" + cause.getMessage(), symbol);
+            logger.info("binance order book symbol:[{}] ----- WS connection failed. Reconnecting. cause:" + cause.getMessage(), symbol);
 
             initialize();
         }
