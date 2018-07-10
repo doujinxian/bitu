@@ -38,7 +38,7 @@ public class FcoinApiClientImpl implements FcoinApiClient, Closeable {
     }
 
     @Override
-    public List<FcoinSymbol> getSymbols() {
+    public List getSymbols() {
         return executeSync(fcoinApiService.getSymbols(FcoinApiConstants.API_PUBLIC_SYMBOLS)).getData();
     }
 
@@ -48,10 +48,9 @@ public class FcoinApiClientImpl implements FcoinApiClient, Closeable {
     }
 
     private Closeable createNewWebSocket(String symbol, ApiWebSocketListener<?> listener) {
-        String streamingUrl = String.format("%s?topic=%s", FcoinApiConstants.WS_API_BASE_URL, symbol);
-        System.out.println(streamingUrl);
-        Request request = new Request.Builder().url(streamingUrl).build();
+        Request request = new Request.Builder().url(FcoinApiConstants.WS_API_BASE_URL).build();
         final WebSocket webSocket = client.newWebSocket(request, listener);
+        webSocket.send("{\"cmd\":\"sub\",\"args\":[\"trade.btcusdt\"],\"id\":\"1\"}");
         return () -> {
             final int code = 1000;
             listener.onClosing(webSocket, code, null);

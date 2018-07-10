@@ -82,7 +82,7 @@ public class FcoinTradeHelper {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                logger.error("--------fcoin symbol:[{}] -----" + newEvent.toString(), symbol);
+                logger.error("--------fcoin trade -----" + newEvent.toString());
             }
         };
 

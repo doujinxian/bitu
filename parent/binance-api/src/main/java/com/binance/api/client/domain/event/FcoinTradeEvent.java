@@ -5,19 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
+
 /**
  * An aggregated trade event for a symbol.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FcoinTradeEvent {
-    /*{
-        "type":"trade.ethbtc",
-            "id":76000,
-            "amount":1.000000000,
-            "ts":1523419946174,
-            "side":"sell",
-            "price":4.000000000
-    }*/
+public class FcoinTradeEvent implements Serializable{
     @JsonProperty("type")
     private String type;
 
