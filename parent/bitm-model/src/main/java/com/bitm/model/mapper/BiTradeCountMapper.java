@@ -24,6 +24,6 @@ public interface BiTradeCountMapper {
     @Select("SELECT MAX(trade_start_time) FROM bi_trade_count")
     Long findMaxTradeStartTime();
 
-    @Select("SELECT t.`count`, t.`qty_from` AS qtyFrom FROM `bi_trade_count` t WHERE t.`symbol` = #{symbol} AND t.`trade_start_time` >= #{tradeStartTime} AND t.`trade_end_time` <= #{tradeEndTime}")
+    @Select("SELECT t.`count`, t.`qty_from` AS qtyFrom FROM `bi_trade_count` t WHERE t.`symbol` = #{symbol} AND t.`trade_start_time` >= #{tradeStartTime} AND t.`trade_end_time` <= #{tradeEndTime} AND platform=1")
     List<BiTradeCount> findBiTradeCount(@Param("symbol") String symbol, @Param("tradeStartTime") Long tradeStartTime, @Param("tradeEndTime") Long tradeEndTime);
 }

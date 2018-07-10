@@ -50,7 +50,7 @@ public class FcoinApiClientImpl implements FcoinApiClient, Closeable {
     private Closeable createNewWebSocket(String symbol, ApiWebSocketListener<?> listener) {
         Request request = new Request.Builder().url(FcoinApiConstants.WS_API_BASE_URL).build();
         final WebSocket webSocket = client.newWebSocket(request, listener);
-        webSocket.send("{\"cmd\":\"sub\",\"args\":[\"trade.btcusdt\"],\"id\":\"1\"}");
+        webSocket.send("{\"cmd\":\"sub\",\"args\":" + symbol + ",\"id\":\"1\"}");
         return () -> {
             final int code = 1000;
             listener.onClosing(webSocket, code, null);

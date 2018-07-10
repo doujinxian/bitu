@@ -23,6 +23,6 @@ public interface BiTradeQtyMapper {
     @Delete("delete FROM bi_trade_qty where trade_start_time = #{tradeStartTime}")
     int deleteByTradeStartTime(@Param("tradeStartTime") Long tradeStartTime);
 
-    @Select("SELECT t.`is_buyer_maker` as isBuyerMaker, t.`qty`,t.`trade_start_time` as tradeStartTime FROM `bi_trade_qty` t WHERE t.`symbol` = #{symbol} AND t.`trade_start_time` >= #{tradeStartTime} AND t.`trade_end_time` <= #{tradeEndTime}")
+    @Select("SELECT t.`is_buyer_maker` as isBuyerMaker, t.`qty`,t.`trade_start_time` as tradeStartTime FROM `bi_trade_qty` t WHERE t.`symbol` = #{symbol} AND t.`trade_start_time` >= #{tradeStartTime} AND t.`trade_end_time` <= #{tradeEndTime} and platform =1")
     List<BiTradeQty> findBiTradeQty(@Param("symbol") String symbol, @Param("tradeStartTime") Long tradeStartTime, @Param("tradeEndTime") Long tradeEndTime);
 }

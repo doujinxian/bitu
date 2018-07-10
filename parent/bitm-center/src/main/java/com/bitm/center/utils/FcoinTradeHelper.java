@@ -66,7 +66,7 @@ public class FcoinTradeHelper {
             try {
                 if (StringUtils.isNotBlank(newEvent.getPrice()) && StringUtils.isNotBlank(newEvent.getQuantity())) {
                     Trade tradeInfo = new Trade();
-                    tradeInfo.setSymbol(newEvent.getType().replace("trade.", ""));
+                    tradeInfo.setSymbol(newEvent.getType().replace("trade.", "").toUpperCase());
                     tradeInfo.setPlatform(CommonConstants.PLATFORM_FCOIN);
                     tradeInfo.setTradeId(newEvent.getTradeId());
                     tradeInfo.setIsBuyerMaker(newEvent.getSide().equalsIgnoreCase("buy") ? 1 : 0);

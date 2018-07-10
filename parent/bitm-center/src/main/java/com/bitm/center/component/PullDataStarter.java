@@ -46,7 +46,7 @@ public class PullDataStarter implements CommandLineRunner {
         System.out.println("startPullData:" + startPullData);
         if (startPullData != null && startPullData == true) {
             ExecutorService executorService = Executors.newFixedThreadPool(2);
-           /* executorService.submit(new Runnable() {
+            executorService.submit(new Runnable() {
                 @Override
                 public void run() {
                     logger.info("---------- init binance data start -----------");
@@ -55,33 +55,29 @@ public class PullDataStarter implements CommandLineRunner {
                         //获取币安交易记录
                         new BinanceTradeHelper(symbol, factory, tradeService);
                         //获取币安报价信息
-                        new OrderBookHelper(symbol, factory, orderBookService);
+                        //new OrderBookHelper(symbol, factory, orderBookService);
                     }
                     logger.info("---------- init binance data finish -----------");
                 }
-            });*/
+            });
             executorService.submit(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        logger.info("---------- init fcoin data start -----------");
-                        FcoinApiClientFactory factory = FcoinApiClientFactory.newInstance();
-                        FcoinApiClient client = factory.newClient();
-                        List<FcoinSymbol> symbols = client.getSymbols();
-                        if (symbols == null || symbols.size() == 0) {
-                            logger.error("---------- fcoin public symbols is null -----------");
-                            return;
-                        }
-                        JSONArray topics = new JSONArray();
-                        for (FcoinSymbol symbol : symbols) {
-                            topics.add("trade." + symbol.getName());
-                        }
-                        //获取币安交易记录
-                        new FcoinTradeHelper(URLEncoder.encode(topics.toString(),"UTF-8"), client, tradeService);
-                        logger.info("---------- init fcoin data finish -----------");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
+                    logger.info("---------- init fcoin data start -----------");
+                    FcoinApiClientFactory factory = FcoinApiClientFactory.newInstance();
+                    FcoinApiClient client = factory.newClient();
+                    List<FcoinSymbol> symbols = client.getSymbols();
+                    if (symbols == null || symbols.size() == 0) {
+                        logger.error("---------- fcoin public symbols is null -----------");
+                        return;
                     }
+                    JSONArray topics = new JSONArray();
+                    for (FcoinSymbol symbol : symbols) {
+                        topics.add("trade." + symbol.getName());
+                    }
+                    //获取币安交易记录
+                    new FcoinTradeHelper(topics.toString(), client, tradeService);
+                    logger.info("---------- init fcoin data finish -----------");
                 }
             });
         }
